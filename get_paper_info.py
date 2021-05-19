@@ -7,7 +7,7 @@ import time
 def run(playwright):
     browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
-
+    word = input("enter search word")
     # Open new page
     page = context.new_page()
 
@@ -18,7 +18,7 @@ def run(playwright):
     page.click("[aria-label=\"Enter search text\"]")
 
     # Fill [aria-label="Enter search text"]
-    page.fill("[aria-label=\"Enter search text\"]", "graph neural network")
+    page.fill("[aria-label=\"Enter search text\"]", word)
 
     # Click [aria-label="Search"]
     page.click("[aria-label=\"Search\"]")
