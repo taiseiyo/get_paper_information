@@ -7,7 +7,7 @@ import time
 def run(playwright):
     browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
-    word = input("enter search word")
+    word = input("enter search word: ")
     # Open new page
     page = context.new_page()
 
