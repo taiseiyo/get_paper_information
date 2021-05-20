@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 from playwright.sync_api import sync_playwright
-from bs4 import BeautifulSoup
 import time
+import sys
 
 
 def run(playwright):
     browser = playwright.chromium.launch(headless=True)
+
     context = browser.new_context()
-    word = input("enter search word: ")
+    word = sys.argv[1]
     # Open new page
     page = context.new_page()
 
@@ -43,31 +44,20 @@ def run(playwright):
     # Click :nth-match(input[name="citations-format"], 2)
     page.click(":nth-match(input[name=\"citations-format\"], 2)")
 
-    time.sleep(2)
-
     # Click div[role="tabpanel"] >> text=Export
     with page.expect_popup() as popup_info:
         page.click("div[role=\"tabpanel\"] >> text=Export")
     page1 = popup_info.value
-    time.sleep(3)
-    html = page1.content()
-    print(html)
-    get_text(html)
-
+    time.sleep(5)
+    print(page1.content())
     # Close page
     page.close()
-
     # Close page
     page1.close()
 
     # ---------------------
     context.close()
     browser.close()
-
-
-def get_text(html):
-    soup = BeautifulSoup(html, parser="html.parser")
-    # soup.find("").get_text()
 
 
 with sync_playwright() as playwright:

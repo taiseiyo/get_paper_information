@@ -1,3 +1,18 @@
 * Playwright
 ** Official documentation
 - [[https://playwright.dev/python/docs/cli/][URL]] 
+
+** code generation
+#+begin_src bash 
+playwright codegen https://ieeexplore.ieee.org/Xplore/home.jsp(URL) -o test.py(file name)
+#+end_src
+
+* Google translate
+
+** Description
+Googletrans is a free and unlimited python library that implemented Google Translate API.
+
+** vertion
+#+begin_src bash  
+pip install googletrans==4.0.0-rc1
+#+end_src
