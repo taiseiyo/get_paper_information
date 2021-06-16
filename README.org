@@ -1,4 +1,9 @@
 * Playwright
+** install
+#+begin_src bash
+sudo pip3 install playwright
+playwright install
+#+end_src
 ** Official documentation
 - [[https://playwright.dev/python/docs/cli/][URL]] 
 

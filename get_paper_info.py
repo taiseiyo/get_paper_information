@@ -5,7 +5,7 @@ import sys
 
 
 def run(playwright):
-    browser = playwright.chromium.launch(headless=True)
+    browser = playwright.chromium.launch(headless=False)
 
     context = browser.new_context()
     word = sys.argv[1]

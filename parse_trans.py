@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import fileinput
+# from googletrans import Translator
 from googletrans import Translator
 
 f = fileinput.input()
@@ -33,6 +34,8 @@ abstract_index = list(zip(begin_index, end_index))
 
 titles = connect_character(title_index)
 abstracts = connect_character(abstract_index)
+translator = Translator()
+
 
 for title, abst in list(zip(titles, abstracts)):
     print("Title: "+title[0], "\n")
